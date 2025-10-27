@@ -1,0 +1,15 @@
+import { configDotenv } from "dotenv";
+import mongoose from "mongoose";
+
+configDotenv();
+
+const connectionString = process.env.MONGODB;
+
+export const connectDB = async () => {
+  try {
+    await mongoose.connect(connectionString);
+    console.log("DataBase connected");
+  } catch (error) {
+    console.error(error);
+  }
+};
