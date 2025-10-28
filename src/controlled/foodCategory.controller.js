@@ -4,8 +4,9 @@ export const createFoodCategory = async (req, res) => {
   try {
     const { body } = req;
     const foodCategory = await FoodCategory.create(body);
-    res.status(200).send({ message: "Amjittai", data: foodCategory });
+    console.log(req.data);
+    res.status(200).send({ message: "Success", data: foodCategory });
   } catch (error) {
-    res.status(500).send({ message: "Aldaa garsan !!", data: null });
+    res.status(500).send({ message: "error !!", data: null });
   }
 };
