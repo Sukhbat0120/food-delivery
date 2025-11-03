@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
 import { configDotenv } from "dotenv";
 import express from "express";
 import bodyParser from "body-parser";
 import { connectDB } from "./database/db.js";
 import { CategoryRouter } from "./routes/foodCategory.route.js";
 import { userRouter } from "./routes/User.route.js";
+import { foodRouter } from "./routes/food.route.js";
 
 configDotenv();
 
@@ -17,6 +17,8 @@ app.use(bodyParser.json());
 app.use("/category", CategoryRouter);
 
 app.use("/user", userRouter);
+
+app.use("/", foodRouter);
 
 app.listen(port, () => {
   connectDB();

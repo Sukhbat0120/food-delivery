@@ -23,7 +23,6 @@ export const login = async (req, res) => {
   try {
     const { body } = req;
     const { email, password } = body;
-
     const user = await User.findOne({ email });
 
     if (!user.length) {
