@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import { User } from "../models/User.model.js";
+import Jwt from "jsonwebtoken";
 
 export const signUp = async (req, res) => {
   try {
@@ -24,6 +25,10 @@ export const login = async (req, res) => {
     const { body } = req;
     const { email, password } = body;
     const user = await User.findOne({ email });
+
+    const token = Jwt.sign(user.toObject(), "secret-key", { expiresIn: "1h" });
+    console.log(user, token);
+    res.send({ user, token });
 
     if (!user.length) {
     }
