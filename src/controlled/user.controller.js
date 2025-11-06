@@ -42,3 +42,27 @@ export const login = async (req, res) => {
     console.error(error);
   }
 };
+
+export const updateUser = async (req, res) => {
+  try {
+    const { body } = req;
+    const result = await User.findByIdAndUpdate(body);
+    console.log(result, "Update Result");
+    res.send(result);
+  } catch (error) {
+    console.error(error);
+    res.send(error);
+  }
+};
+
+export const deleteUser = async (req, res) => {
+  try {
+    const { body } = req;
+    const result = await User.findByIdAndDelete(body);
+    console.log(result, "result");
+    res.send(result);
+  } catch (error) {
+    console.error(error);
+    res.send(error);
+  }
+};
