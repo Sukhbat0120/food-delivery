@@ -2,11 +2,11 @@ import { Schema, model } from "mongoose";
 
 const FoodSchema = new Schema(
   {
-    //_id: { type: [Schema.ObjectId] },
+    id: { type: Schema.Types.ObjectId, ref: "Category" },
     foodName: { type: String },
     price: { type: Number },
     image: { type: String },
-    ingredients: { type: String },
+    ingredients: { type: String, required: true, select: false },
   },
   {
     timestamps: true,
