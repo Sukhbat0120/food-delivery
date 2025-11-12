@@ -8,7 +8,7 @@ import {
 
 export const foodRouter = Router();
 foodRouter
-  .post("/food_id", createFood)
-  .get("/food_id", getFood)
-  .patch("/food_id", updateFood)
-  .delete("/food_id", deleteFood);
+  .post("/", createFood)
+  .get("/", getFood)
+  .patch("/", updateFood)
+  .delete("/", deleteFood);

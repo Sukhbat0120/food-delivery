@@ -5,6 +5,7 @@ import { connectDB } from "./database/db.js";
 import { CategoryRouter } from "./routes/foodCategory.route.js";
 import { userRouter } from "./routes/User.route.js";
 import { foodRouter } from "./routes/food.route.js";
+import { OrderRouter } from "./routes/foodOrder.route.js";
 
 configDotenv();
 
@@ -18,7 +19,9 @@ app.use("/category", CategoryRouter);
 
 app.use("/user", userRouter);
 
-app.use("/", foodRouter);
+app.use("/food", foodRouter);
+
+app.use("/order", OrderRouter);
 
 app.listen(port, () => {
   connectDB();

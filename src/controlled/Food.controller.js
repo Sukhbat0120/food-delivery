@@ -13,7 +13,7 @@ export const createFood = async (req, res) => {
 export const getFood = async (req, res) => {
   try {
     const { body } = req;
-    const food = await Food.get(body);
+    const food = await Food.find(body).populate("FoodCategory");
     res.status(200).send({ message: "success", data: food });
   } catch (error) {
     console.error(error);
